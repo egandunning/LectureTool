@@ -70,6 +70,18 @@
         <ComboBox fx:id="fontSizeCombo" onAction="#fontSizeChanged"/>
         <Button fx:id="undoButton" text="Undo" onAction="#undoTyping"/>
         <Button fx:id="redoButton" text="Redo" onAction="#redoTyping"/>
+        
+        <Button fx:id="bulletButton" text="Bullets" onAction="#bulletsMode">
+            <tooltip>
+                <Tooltip text="CTRL-1"/>
+            </tooltip>
+        </Button>
+        
+        <Button fx:id="dashButton" text="Dashes" onAction="#dashesMode">
+            <tooltip>
+                <Tooltip text="CTRL-2"/>
+            </tooltip>
+        </Button>
     </HBox>
     
     <TextArea fx:id="noteTextArea" GridPane.columnIndex="1" wrapText="true"

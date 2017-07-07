@@ -55,6 +55,7 @@ public class FXMLDocumentController implements Initializable {
     //keyboard shortcut flag
     private boolean numbering = false;
     private boolean bullets = false;
+    private boolean dashes = false;
     
     /**
      * Display options dialog. Save options to file
@@ -372,14 +373,32 @@ public class FXMLDocumentController implements Initializable {
                 saveNote();
             } else if(event.getCode() == KeyCode.DIGIT1 &&
                     event.isShortcutDown()) {
-                System.out.println("here");
-                bullets = !bullets;
+                bulletsMode();
+            } else if(event.getCode() == KeyCode.DIGIT2 &&
+                    event.isShortcutDown()) {
+                dashesMode();
             } else if(bullets && event.getCode() == KeyCode.ENTER) {
                 int index = noteTextArea.getCaretPosition();
                 noteTextArea.insertText(index, "\n\u2022 ");
                 event.consume();
+            } else if(dashes && event.getCode() == KeyCode.ENTER) {
+                int index = noteTextArea.getCaretPosition();
+                noteTextArea.insertText(index, "\n  - ");
+                event.consume();
             }
         });
+    }
+    
+    @FXML
+    public void bulletsMode() {
+        bullets = !bullets;
+        dashes = false;
+    }
+    
+    @FXML
+    public void dashesMode() {
+        dashes = !dashes;
+        bullets = false;
     }
     
     /**
