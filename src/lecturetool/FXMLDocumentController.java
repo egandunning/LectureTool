@@ -29,7 +29,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
-import netscape.javascript.JSObject;
 
 /**
  *
@@ -363,7 +362,7 @@ public class FXMLDocumentController implements Initializable {
         engine.load(Course.getUrl(currentCourse));
         
         fontSizeCombo.setItems(FXCollections.observableList(
-                Arrays.asList(10,12,14,16,18,20,22,24)));
+                Arrays.asList(10,12,14,16,18)));
         fontSizeCombo.getSelectionModel().select(
                 noteTextArea.getFont().getSize());
         

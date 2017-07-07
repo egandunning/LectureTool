@@ -30,12 +30,27 @@
         <Button fx:id="openNoteButton" text="Open a Note File"
                 onAction="#openNote"/>
         <Separator/>
+        
         <Button fx:id="deleteCourseButton" text="Delete Course" 
-                onAction="#deleteCourse"/>
+                onAction="#deleteCourse">
+            <tooltip>
+                <Tooltip text="Delete currently selected course"/>
+            </tooltip>
+        </Button>
+        
         <Button fx:id="deleteNoteButton" text="Delete Note" 
-                onAction="#deleteNote"/>
+                onAction="#deleteNote">
+            <tooltip>
+                <Tooltip text="Delete currently selected note"/>
+            </tooltip>
+        </Button>
+        
         <Separator/>
-        <Button fx:id="saveNoteButton" text="Save Note" onAction="#saveNote"/>
+        <Button fx:id="saveNoteButton" text="Save Note" onAction="#saveNote">
+            <tooltip>
+               <Tooltip text="CTRL-S"/> 
+            </tooltip>
+        </Button>
     </ToolBar>
     
     <WebView fx:id="webView" GridPane.columnIndex="0" GridPane.rowIndex="1"
