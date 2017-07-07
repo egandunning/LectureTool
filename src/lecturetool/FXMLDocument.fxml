@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.WebView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.collections.*?>
+<?import lecturetool.*?>
+
+<GridPane fx:id="gridPane" alignment="center" hgap="10.0" vgap="10.0" 
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="lecturetool.FXMLDocumentController">
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
+    
+    <ToolBar fx:id="toolBar" GridPane.columnIndex="0" GridPane.rowIndex="0"
+            GridPane.columnSpan="3">
+        <Button fx:id="optionsButton" text="Options" onAction="#options"/>
+        <Button fx:id="newCourseButton" text="New Course" 
+                onAction="#newCourse"/>
+        <Button fx:id="newNoteButton" text="New Note" onAction="#newNote"/>
+        <Separator/>
+        <Button fx:id="openCourseButton" text="Open a Course" 
+                onAction="#openCourse"/>
+        <Button fx:id="openNoteButton" text="Open a Note File"
+                onAction="#openNote"/>
+        <Separator/>
+        <Button fx:id="deleteCourseButton" text="Delete Course" 
+                onAction="#deleteCourse"/>
+        <Button fx:id="deleteNoteButton" text="Delete Note" 
+                onAction="#deleteNote"/>
+        <Separator/>
+        <Button fx:id="saveNoteButton" text="Save Note" onAction="#saveNote"/>
+    </ToolBar>
+    
+    <WebView fx:id="webView" GridPane.columnIndex="0" GridPane.rowIndex="1"
+            GridPane.rowSpan="2" GridPane.hgrow="always" 
+            GridPane.vgrow="always"/>
+    
+    <HBox spacing="10"  alignment="bottom_left" GridPane.columnIndex="1"
+            GridPane.rowIndex="1">
+        
+        <Label text=" Course:" style="-fx-font-size:16"/>
+        <Label fx:id="courseLabel" 
+               style="-fx-font-size:16; -fx-font-weight:bold"/>
+        <Label text="Note:" style="-fx-font-size:16"/>
+        <Label fx:id="noteLabel" 
+                style="-fx-font-size:16; -fx-font-weight:bold"/>
+        <Label text="Font size:" style="-fx-font-size:16"/>
+        <ComboBox fx:id="fontSizeCombo" onAction="#fontSizeChanged"/>
+        <Button fx:id="undoButton" text="Undo" onAction="#undoTyping"/>
+        <Button fx:id="redoButton" text="Redo" onAction="#redoTyping"/>
+    </HBox>
+    
+    <TextArea fx:id="noteTextArea" GridPane.columnIndex="1" wrapText="true"
+              GridPane.rowIndex="2"  GridPane.hgrow="always"
+              GridPane.vgrow="always" GridPane.columnSpan="1">
+    </TextArea>
+    
+    <HBox spacing="10" alignment="bottom_left" GridPane.columnIndex="0"
+        GridPane.rowIndex="3" GridPane.columnSpan="3">
+        <Button fx:id="viewInfoButton" text="View all info" 
+                onAction="#viewInfo"/>
+        <Label fx:id="infoLabel"/>
+    </HBox>
+    
+</GridPane>
